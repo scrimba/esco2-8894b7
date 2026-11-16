@@ -1,0 +1,609 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>ESCo₂ Group | Capture emissions. Create products.</title><style>:root { --navy: #0a2330; --navy2: #123b48; --ink: #102d39; --teal: #087f85; --gold: #f0b842; --paper: #f5f6f2; --white: #fff; --muted: #617680; --rule: #d8e2e1; --max: 1296px; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0px; color: var(--ink); background: var(--white); font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
+button, a { font: inherit; }
+a { color: inherit; }
+button { cursor: pointer; }
+img, svg { max-width: 100%; }
+[hidden] { display: none !important; }
+.shell { width: min(calc(100% - 112px),var(--max)); margin: 0px auto; }
+.section-pad { padding: 112px 0px; }
+section[id] { scroll-margin-top: 82px; }
+.site-header { position: sticky; top: 0px; z-index: 50; background: rgba(255, 255, 255, 0.96); border-bottom: 1px solid rgb(233, 238, 238); backdrop-filter: blur(16px); }
+.header-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 36px; }
+.brand { display: inline-flex; align-items: baseline; gap: 9px; text-decoration: none; font-size: 29px; letter-spacing: -0.085em; font-weight: 800; color: var(--navy); white-space: nowrap; line-height: 1; }
+.site-nav { display: flex; align-items: center; gap: 29px; }
+.site-nav a { font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap; transition: color 0.2s; }
+.site-nav a:hover { color: var(--teal); }
+.site-nav .nav-contact { border: 1px solid var(--navy); padding: 12px 17px; margin-left: 5px; }
+.site-nav .nav-contact:hover { background: var(--navy); color: rgb(255, 255, 255); }
+.site-nav .nav-contact span { margin-left: 14px; }
+.menu-toggle { display: none; border: 0px; background: none; padding: 12px; }
+.menu-toggle span { display: block; width: 27px; height: 2px; margin: 5px; background: var(--navy); }
+.hero { color: rgb(255, 255, 255); background: radial-gradient(circle at 89% 34%,#155464 0,#0d3543 25%,var(--navy) 67%); overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: minmax(0px, 1.08fr) minmax(430px, 0.92fr); align-items: center; gap: 7%; min-height: 693px; padding-top: 73px; padding-bottom: 70px; }
+.eyebrow { text-transform: uppercase; letter-spacing: 0.19em; color: var(--teal); font-size: 12px; line-height: 1.5; font-weight: 800; margin: 0px 0px 24px; }
+.eyebrow.on-dark { color: var(--gold); }
+h1, h2, h3, p { margin-top: 0px; }
+h1 { font-size: clamp(56px, 5.35vw, 88px); line-height: 1.015; letter-spacing: -0.055em; margin-bottom: 31px; font-weight: 800; }
+h1 span { color: var(--gold); }
+.hero-lede { max-width: 730px; font-size: 20px; line-height: 1.57; color: rgb(210, 224, 226); margin-bottom: 34px; }
+.hero-actions { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
+.button { display: inline-flex; align-items: center; justify-content: space-between; gap: 28px; min-height: 52px; padding: 15px 19px; text-decoration: none; font-weight: 800; font-size: 15px; }
+.button-gold { background: var(--gold); color: var(--navy); border: 1px solid var(--gold); transition: transform 0.2s, background 0.2s; }
+.button-gold:hover { background: rgb(255, 208, 117); transform: translateY(-2px); }
+.text-link { display: inline-flex; gap: 13px; align-items: center; text-decoration: none; border-bottom: 1px solid; padding-bottom: 5px; color: var(--teal); font-weight: 800; font-size: 15px; }
+.text-link:hover { color: var(--navy); }
+.text-link.light { color: rgb(255, 255, 255); }
+.text-link.light:hover { color: var(--gold); }
+.stage-line { display: flex; align-items: center; gap: 10px; margin-top: 60px; font-size: 13px; letter-spacing: 0.05em; color: rgb(170, 195, 200); }
+.stage-dot { width: 8px; height: 8px; border-radius: 100%; background: var(--gold); box-shadow: rgba(240, 184, 66, 0.133) 0px 0px 0px 5px; }
+.hero-system { border: 1px solid rgba(103, 144, 154, 0.51); background: linear-gradient(145deg, rgba(17, 56, 72, 0.72), rgba(11, 41, 54, 0.72)); padding: 22px 28px 24px; box-shadow: rgba(3, 25, 37, 0.19) 22px 30px 0px; transform: rotate(1deg); }
+.hero-system-top, .hero-system-bottom { display: flex; justify-content: space-between; gap: 15px; font: 700 10px / 1.5 "Courier New", monospace; letter-spacing: 0.12em; color: rgb(150, 183, 190); }
+.hero-system-top { border-bottom: 1px solid rgba(119, 148, 154, 0.333); padding-bottom: 18px; }
+.hero-system-bottom { border-top: 1px solid rgba(119, 148, 154, 0.333); padding-top: 18px; }
+.hero-system-bottom span:last-child { color: var(--gold); }
+.hero-system-flow { padding: 16px 0px; }
+.flow-step { position: relative; padding: 21px 7px 22px 44px; border-bottom: 1px solid rgba(113, 146, 154, 0.314); }
+.flow-step:last-child { border: 0px; }
+.flow-step::before { content: ""; position: absolute; left: 16px; top: -12px; bottom: 0px; border-left: 1px solid rgb(111, 154, 160); }
+.flow-step:first-child::before { top: 50%; }
+.flow-step:last-child::before { bottom: 50%; }
+.flow-step::after { content: ""; position: absolute; left: 11px; top: 44px; width: 11px; height: 11px; border-radius: 50%; background: rgb(131, 191, 193); box-shadow: rgba(131, 191, 193, 0.133) 0px 0px 0px 5px; }
+.flow-step.emphasis::after { background: var(--gold); }
+.flow-step.optional::after { background: rgb(90, 131, 144); }
+.flow-index { display: block; color: var(--gold); font: 700 11px / 1.4 "Courier New", monospace; margin-bottom: 7px; letter-spacing: 0.12em; }
+.flow-step strong { display: block; font-size: 19px; line-height: 1.2; }
+.flow-step small { display: block; color: rgb(167, 192, 197); font-size: 13px; margin-top: 5px; }
+.section-heading { margin-bottom: 55px; }
+.split-heading { display: grid; grid-template-columns: 1fr minmax(340px, 0.6fr); gap: 11%; align-items: end; }
+.section-heading h2, .applications h2, .progress h2, .measurement h2, .contact h2 { font-size: clamp(39px, 4.1vw, 63px); line-height: 1.08; letter-spacing: -0.048em; margin-bottom: 0px; max-width: 800px; }
+.split-heading > p { color: rgb(80, 100, 109); font-size: 18px; line-height: 1.64; margin: 0px 0px 5px; }
+.intro { background: var(--paper); }
+.signals { border-top: 1px solid rgb(189, 204, 203); border-bottom: 1px solid rgb(189, 204, 203); display: grid; grid-template-columns: 1fr 1fr; }
+.signal { padding: 34px 70px 37px 0px; }
+.signal + .signal { border-left: 1px solid rgb(189, 204, 203); padding-left: 70px; }
+.signal-number { display: block; color: var(--teal); font-size: clamp(48px, 5vw, 76px); font-weight: 800; letter-spacing: -0.06em; line-height: 1.1; margin-bottom: 8px; }
+.signal-number small { font-size: 0.5em; letter-spacing: -0.02em; }
+.signal-years { color: var(--navy); font-size: clamp(34px, 3.2vw, 49px); padding-top: 17px; padding-bottom: 11px; white-space: nowrap; }
+.signal p { max-width: 525px; min-height: 62px; font-size: 17px; line-height: 1.53; color: rgb(52, 78, 88); margin: 0px 0px 19px; }
+.signal a { font-size: 13px; font-weight: 800; color: var(--teal); text-underline-offset: 4px; }
+.context-note { font-size: 13px; line-height: 1.55; color: rgb(102, 123, 129); margin: 19px 0px 0px; }
+.platform { background: rgb(255, 255, 255); }
+.mode-selector { display: flex; gap: 0px; border-bottom: 1px solid var(--rule); margin-bottom: 31px; }
+.mode-selector button { border-width: 0px 0px 3px; border-style: none none solid; border-color: currentcolor currentcolor transparent; border-image: none; background: none; color: rgb(116, 137, 142); min-width: 230px; text-align: left; padding: 18px 25px 18px 0px; font: 800 12px / 1.2 "Courier New", monospace; }
+.mode-selector button span { font: 800 22px / 1.2 Arial, Helvetica, sans-serif; margin-left: 12px; }
+.mode-selector button[aria-selected="true"] { border-color: var(--teal); color: var(--navy); }
+.mode-selector button:hover { color: var(--teal); }
+.mode-panel { background: rgb(243, 247, 246); padding: 43px 47px 40px; min-height: 385px; }
+.mode-copy { display: grid; grid-template-columns: 1fr 1fr; column-gap: 10%; align-items: start; }
+.mode-copy h3 { font-size: 32px; letter-spacing: -0.035em; line-height: 1.17; margin: 0px; }
+.mode-copy p { color: rgb(67, 91, 99); line-height: 1.6; font-size: 17px; margin: 0px; }
+.output-line { grid-column: 1 / -1; margin-top: 28px; font-size: 14px; }
+.output-line span { font-weight: 800; color: var(--teal); text-transform: uppercase; letter-spacing: 0.1em; margin-right: 18px; }
+.output-line strong { font-size: 18px; }
+.process-map { display: flex; align-items: stretch; gap: 0px; margin-top: 34px; }
+.process-map div { border: 1px solid rgb(156, 184, 184); background: rgb(255, 255, 255); min-width: 0px; flex: 1 1 0%; padding: 15px 17px; min-height: 79px; }
+.process-map div.active { background: var(--teal); border-color: var(--teal); color: rgb(255, 255, 255); }
+.process-map div span { display: block; font: 700 10px / 1.3 "Courier New", monospace; letter-spacing: 0.09em; text-transform: uppercase; color: rgb(113, 144, 152); margin-bottom: 8px; }
+.process-map div.active span { color: rgb(213, 238, 238); }
+.process-map div strong { font-size: 15px; line-height: 1.22; display: block; }
+.process-map i { width: 31px; flex: 0 0 31px; position: relative; }
+.process-map i::before { content: ""; position: absolute; left: 0px; right: 5px; top: 50%; height: 1px; background: var(--teal); }
+.process-map i::after { content: ""; position: absolute; right: 2px; top: calc(50% - 4px); width: 8px; height: 8px; border-top: 1px solid var(--teal); border-right: 1px solid var(--teal); transform: rotate(45deg); }
+.technical-note { font-size: 14px; color: rgb(108, 128, 134); line-height: 1.5; margin: 20px 0px 0px; max-width: 950px; }
+.products { background: var(--paper); }
+.product-list { border-top: 1px solid rgb(189, 204, 203); }
+.product-row { display: grid; grid-template-columns: 80px 1fr 215px; gap: 24px; padding: 30px 0px 32px; border-bottom: 1px solid rgb(189, 204, 203); align-items: start; }
+.product-index { font: 700 17px / 1.5 "Courier New", monospace; color: var(--teal); }
+.product-row h3 { font-size: 29px; letter-spacing: -0.025em; margin: 0px 0px 10px; }
+.product-row p { font-size: 17px; line-height: 1.54; color: rgb(73, 97, 106); max-width: 690px; margin: 0px; }
+.product-state { text-align: right; color: rgb(98, 119, 123); font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 800; padding-top: 7px; }
+.evidence-row h3 { color: var(--teal); }
+.measurement { background: var(--navy); color: rgb(255, 255, 255); }
+.measurement-grid { display: grid; grid-template-columns: 0.92fr 1fr; gap: 13%; }
+.measurement h2 { max-width: 550px; }
+.measurement-lede { font-size: 19px; line-height: 1.6; color: rgb(186, 208, 211); max-width: 580px; margin: 27px 0px 0px; }
+.measure-list { border-top: 1px solid rgb(72, 101, 116); }
+.measure-list div { border-bottom: 1px solid rgb(72, 101, 116); display: grid; grid-template-columns: 55px 1fr; gap: 18px; padding: 21px 0px; }
+.measure-list span { font: 700 14px / 1.5 "Courier New", monospace; color: var(--gold); }
+.measure-list p { font-size: 17px; line-height: 1.45; margin: 0px; color: rgb(224, 234, 234); }
+.project-model { background: rgb(255, 255, 255); }
+.roles { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgb(198, 211, 210); }
+.roles article { padding: 34px 50px 18px 0px; min-height: 265px; }
+.roles article + article { border-left: 1px solid rgb(198, 211, 210); padding-left: 50px; }
+.role-no { display: block; font: 700 13px / 1.5 "Courier New", monospace; color: var(--teal); margin-bottom: 28px; }
+.roles h3 { font-size: 28px; margin-bottom: 15px; letter-spacing: -0.03em; }
+.roles p { color: rgb(75, 99, 109); line-height: 1.58; font-size: 17px; max-width: 335px; }
+.screening { background: rgb(255, 255, 255); padding: 34px 38px 38px; }
+.screening h3 { font-size: 23px; margin: 0px 0px 20px; }
+.screening ul { list-style: none; padding: 0px; margin: 0px 0px 25px; }
+.screening li { position: relative; padding: 14px 0px 14px 30px; border-bottom: 1px solid var(--rule); font-size: 16px; line-height: 1.4; }
+.screening li::before { content: "+"; position: absolute; left: 0px; color: var(--teal); font-weight: 800; font-size: 21px; top: 10px; }
+.progress { background: rgb(255, 255, 255); }
+.progress h2 { margin-bottom: 24px; }
+.company { background: var(--paper); }
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0px; border-top: 1px solid rgb(196, 208, 207); }
+.team-grid div { padding: 30px 30px 12px 0px; }
+.team-grid strong { display: block; font-size: 20px; margin-bottom: 8px; }
+.team-grid span { color: var(--teal); font-size: 15px; font-weight: 700; }
+.contact { background: rgb(13, 52, 66); color: rgb(255, 255, 255); }
+.contact-grid { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 15%; align-items: end; }
+.contact h2 { font-size: clamp(42px, 4.5vw, 69px); margin: 0px 0px 25px; }
+.contact-grid > div > p:not(.eyebrow) { color: rgb(196, 217, 219); font-size: 18px; line-height: 1.6; max-width: 675px; margin-bottom: 29px; }
+.contact-details { border-top: 1px solid rgb(101, 145, 155); padding-top: 25px; }
+.contact-details span { display: block; font: 700 11px / 1.5 "Courier New", monospace; letter-spacing: 0.11em; color: var(--gold); margin-bottom: 9px; }
+.contact-details > a { font-size: 24px; font-weight: 800; text-underline-offset: 6px; }
+.site-footer { background: rgb(7, 29, 39); color: rgb(167, 189, 194); }
+.footer-main { padding: 39px 0px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgb(56, 81, 91); gap: 30px; }
+.footer-brand { color: rgb(255, 255, 255); }
+.footer-main p { margin: 0px; color: rgb(216, 227, 228); font-size: 15px; }
+.footer-main > a:last-child { font-size: 13px; font-weight: 800; text-decoration: none; color: rgb(232, 240, 240); }
+.footer-bottom { padding: 22px 0px 30px; display: flex; justify-content: space-between; gap: 45px; font-size: 12px; line-height: 1.45; }
+.footer-bottom span:last-child { max-width: 720px; text-align: right; }
+@media (max-width: 1120px){.shell { width: min(calc(100% - 72px),var(--max)); }
+.site-nav { gap: 16px; }
+.site-nav a { font-size: 13px; }
+.hero-grid { grid-template-columns: 1.04fr 0.96fr; gap: 5%; }
+.hero-system { padding: 16px 20px; }
+.flow-step { padding-top: 16px; padding-bottom: 16px; }
+.split-heading { gap: 7%; }
+.process-map div { padding: 13px 10px; }
+.process-map i { flex-basis: 22px; width: 22px; }
+.roles article { padding-right: 28px; }
+.roles article + article { padding-left: 28px; }
+}
+@media (max-width: 860px){.shell { width: min(calc(100% - 48px),var(--max)); }
+.section-pad { padding: 80px 0px; }
+.menu-toggle { display: block; }
+.site-nav { display: none; position: absolute; left: 0px; right: 0px; top: 100%; background: rgb(255, 255, 255); border-bottom: 1px solid var(--rule); padding: 15px 24px 26px; box-shadow: rgba(6, 32, 41, 0.09) 0px 18px 22px; }
+.site-nav a { padding: 13px 0px; font-size: 16px; border-bottom: 1px solid rgb(237, 241, 241); }
+.site-nav .nav-contact { border: 1px solid var(--navy); padding: 14px 17px; margin: 20px 0px 0px; }
+.hero-grid { display: block; min-height: 0px; padding-top: 76px; padding-bottom: 73px; }
+.hero-copy { max-width: 760px; }
+.hero-system { margin: 60px 0px 0px; max-width: 760px; transform: none; box-shadow: none; }
+.stage-line { margin-top: 38px; }
+.split-heading, .measurement-grid, .applications-grid, .progress-grid, .contact-grid { grid-template-columns: 1fr; gap: 38px; }
+.split-heading > p { max-width: 670px; }
+.section-heading { margin-bottom: 36px; }
+.measurement-lede { margin-bottom: 0px; }
+.roles article { padding-right: 22px; }
+.roles article + article { padding-left: 22px; }
+.team-grid { grid-template-columns: repeat(2, 1fr); }
+.contact-details { max-width: 560px; }
+}
+@media (max-width: 620px){.shell { width: min(calc(100% - 36px),var(--max)); }
+.header-inner { min-height: 69px; }
+.brand { font-size: 27px; }
+.hero-grid { padding-top: 60px; }
+.hero h1 { font-size: clamp(48px, 11.5vw, 64px); }
+.hero-lede { font-size: 18px; }
+.hero-actions { gap: 23px; }
+.hero-system { margin-top: 50px; }
+.section-pad { padding: 68px 0px; }
+.section-heading h2, .applications h2, .progress h2, .measurement h2, .contact h2 { font-size: clamp(39px, 10vw, 51px); }
+.signals { display: block; }
+.signal { padding: 27px 0px 30px; }
+.signal + .signal { border-left: 0px; border-top: 1px solid rgb(189, 204, 203); padding-left: 0px; }
+.signal p { min-height: 0px; }
+.signal-years { white-space: normal; padding: 0px; }
+.mode-selector button { min-width: 0px; width: 50%; padding: 13px 8px 14px 0px; }
+.mode-selector button span { display: block; margin: 8px 0px 0px; font-size: 18px; }
+.mode-panel { padding: 25px 19px 28px; }
+.mode-copy { display: block; }
+.mode-copy h3 { font-size: 27px; margin-bottom: 13px; }
+.mode-copy p { font-size: 16px; }
+.output-line { margin-top: 21px; }
+.output-line span, .output-line strong { display: block; }
+.output-line strong { margin-top: 7px; }
+.process-map { display: block; margin-top: 25px; }
+.process-map div { min-height: 0px; padding: 13px 17px; }
+.process-map i { display: block; height: 22px; width: 1px; margin-left: 22px; }
+.process-map i::before { inset: 0px auto 5px 0px; width: 1px; height: auto; }
+.process-map i::after { inset: auto auto 1px -3px; transform: rotate(135deg); }
+.technical-note { font-size: 13px; }
+.product-row { grid-template-columns: 45px 1fr; gap: 12px; padding: 26px 0px; }
+.product-row h3 { font-size: 25px; }
+.product-row p { font-size: 16px; }
+.product-state { grid-column: 2; text-align: left; padding: 0px; }
+.roles { display: block; }
+.roles article { min-height: 0px; padding: 25px 0px; border-bottom: 1px solid rgb(198, 211, 210); }
+.roles article + article { border-left: 0px; padding-left: 0px; }
+.role-no { margin-bottom: 15px; }
+.roles h3 { margin-bottom: 8px; }
+.roles p { margin: 0px; }
+.screening { padding: 27px 25px; }
+.team-grid { grid-template-columns: 1fr; }
+.team-grid div, .team-grid div + div, .team-grid div:nth-child(3) { border-left: 0px; border-top: 1px solid rgb(196, 208, 207); padding: 22px 0px; }
+.footer-main, .footer-bottom { display: block; }
+.footer-main p { margin: 20px 0px; }
+.footer-bottom span { display: block; }
+.footer-bottom span:last-child { text-align: left; margin-top: 12px; }
+.contact-details > a { font-size: 22px; }
+}
+@media (prefers-reduced-motion: reduce){html { scroll-behavior: auto; }
+*, ::before, ::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+.site-nav { gap: 23px; }
+.hero h1 { font-size: clamp(55px, 4.8vw, 78px); }
+.hero-conviction { font-size: 16px; font-weight: 800; letter-spacing: 0.015em; color: var(--gold); margin: 47px 0px 0px; }
+.stage-line { margin-top: 15px; }
+.hero-switch { display: flex; gap: 7px; padding: 17px 0px 3px; }
+.hero-switch button { flex: 1 1 0%; color: rgb(186, 208, 211); border: 1px solid rgb(96, 139, 149); background: rgb(20, 59, 73); padding: 10px 8px; font-size: 13px; font-weight: 800; }
+.hero-switch button[aria-pressed="true"] { color: var(--navy); background: var(--gold); border-color: var(--gold); }
+.hero-switch button:hover { border-color: var(--gold); }
+.hero-system-note { font-size: 11px; line-height: 1.5; color: rgb(148, 177, 184); margin: 15px 0px 0px; }
+.value-band { background: rgb(16, 53, 66); color: rgb(255, 255, 255); border-top: 1px solid rgb(83, 119, 133); }
+.value-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+.value-grid > div { padding: 33px 40px 37px 0px; }
+.value-grid > div + div { border-left: 1px solid rgb(91, 119, 129); padding-left: 40px; }
+.value-grid span, .platform-proof span, .grade-label, .milestones span, .buyer-fields span, .capital-gates span { display: block; color: var(--gold); font: 700 11px / 1.4 "Courier New", monospace; letter-spacing: 0.1em; margin-bottom: 14px; }
+.value-grid strong { display: block; font-size: 19px; letter-spacing: -0.02em; margin-bottom: 8px; }
+.value-grid p { font-size: 14px; line-height: 1.5; color: rgb(186, 208, 211); margin: 0px; max-width: 320px; }
+.platform-proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0px; border-top: 1px solid var(--rule); margin-top: 50px; }
+.platform-proof > div { padding: 26px 34px 0px 0px; }
+.platform-proof > div + div { border-left: 1px solid var(--rule); padding-left: 34px; }
+.platform-proof span { color: var(--teal); margin-bottom: 13px; }
+.platform-proof strong { font-size: 18px; display: block; margin-bottom: 9px; }
+.platform-proof p { font-size: 15px; line-height: 1.5; color: rgb(83, 107, 115); margin: 0px; }
+.grade-ladder { background: rgb(230, 239, 236); border-left: 4px solid var(--teal); padding: 28px 34px; margin-top: 32px; display: flex; align-items: end; justify-content: space-between; gap: 50px; }
+.grade-ladder > div { max-width: 760px; }
+.grade-ladder .grade-label { color: var(--teal); margin-bottom: 8px; }
+.grade-ladder h3 { font-size: 25px; letter-spacing: -0.03em; margin: 0px 0px 8px; }
+.grade-ladder p { font-size: 15px; line-height: 1.55; color: rgb(76, 101, 107); margin: 0px; }
+.grade-ladder .text-link { white-space: nowrap; }
+.button-dark { background: var(--navy); color: rgb(255, 255, 255); border: 1px solid var(--navy); transition: transform 0.2s, background 0.2s; }
+.button-dark:hover { background: var(--teal); transform: translateY(-2px); }
+.host-path { background: rgb(231, 239, 237); }
+.path-grid, .buyer-grid, .capital-grid { display: grid; grid-template-columns: 1fr 0.83fr; gap: 12%; align-items: start; }
+.host-path h2, .buyer-path h2, .capital h2 { font-size: clamp(39px, 4.1vw, 63px); line-height: 1.08; letter-spacing: -0.048em; margin: 0px 0px 26px; }
+.path-grid > div > p:not(.eyebrow), .buyer-grid > div > p:not(.eyebrow), .capital-grid > div > p:not(.eyebrow) { font-size: 18px; line-height: 1.64; color: rgb(67, 92, 100); max-width: 615px; margin-bottom: 30px; }
+.host-path .screening { background: rgb(255, 255, 255); padding: 35px 40px; }
+.screening > p { font-size: 14px; line-height: 1.5; color: rgb(92, 115, 120); margin: 19px 0px 0px; }
+.buyer-path { background: var(--navy); color: rgb(255, 255, 255); }
+.buyer-grid > div > p:not(.eyebrow) { color: rgb(191, 210, 215); }
+.buyer-fields { border-top: 1px solid rgb(75, 105, 117); }
+.buyer-fields > div, .capital-gates > div { border-bottom: 1px solid rgb(75, 105, 117); padding: 20px 0px; }
+.buyer-fields span, .capital-gates span { float: left; width: 55px; margin: 3px 0px 0px; }
+.buyer-fields strong, .capital-gates strong { font-size: 19px; display: block; margin-left: 55px; }
+.buyer-fields p, .capital-gates p { font-size: 15px; line-height: 1.5; color: rgb(189, 209, 213); margin: 7px 0px 0px 55px; }
+.capital { background: rgb(255, 255, 255); }
+.capital-gates { border-top: 1px solid var(--rule); }
+.capital-gates > div { border-bottom-color: var(--rule); }
+.capital-gates span { color: var(--teal); }
+.capital-gates p { color: rgb(82, 106, 114); }
+.milestones { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.milestones > div { padding: 27px 22px 29px 0px; }
+.milestones > div + div { border-left: 1px solid var(--rule); padding-left: 22px; }
+.milestones span { color: var(--teal); }
+.milestones strong { display: block; font-size: 18px; line-height: 1.25; margin-bottom: 11px; }
+.milestones p { font-size: 15px; line-height: 1.48; color: rgb(83, 108, 116); margin: 0px; }
+.progress-note { margin-top: 29px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 9%; align-items: start; }
+.progress-note p { font-size: 16px; line-height: 1.6; color: rgb(77, 100, 108); margin: 0px; }
+.progress-note p:last-child { border-left: 3px solid var(--gold); padding-left: 19px; color: var(--navy); }
+.team-grid p { font-size: 14px; line-height: 1.5; color: rgb(97, 118, 125); margin: 10px 0px 0px; }
+.contact-grid { align-items: start; gap: 10%; grid-template-columns: 1fr 0.8fr; }
+.contact-details { margin-top: 35px; max-width: 400px; }
+.contact-form-wrap { background: rgb(19, 61, 75); padding: 32px 35px 35px; border: 1px solid rgb(91, 138, 150); }
+.contact-form-wrap h3 { font-size: 25px; letter-spacing: -0.025em; margin: 0px 0px 22px; }
+.contact-form-wrap label { display: block; color: rgb(201, 219, 221); font-size: 13px; font-weight: 800; margin: 16px 0px 6px; }
+.contact-form-wrap input, .contact-form-wrap select, .contact-form-wrap textarea { display: block; width: 100%; background: rgb(248, 251, 250); border: 1px solid rgb(142, 174, 181); color: var(--navy); padding: 12px 13px; border-radius: 0px; font: 16px / 1.45 Arial, Helvetica, sans-serif; }
+.contact-form-wrap textarea { resize: vertical; min-height: 110px; }
+.contact-form-wrap button { margin-top: 20px; width: 100%; }
+.contact-form-wrap .form-note { font-size: 12px !important; line-height: 1.5 !important; color: rgb(183, 206, 210) !important; margin: 12px 0px 0px !important; }
+@media (max-width: 1120px){.site-nav { gap: 13px; }
+.site-nav a { font-size: 12px; }
+.value-grid > div { padding-right: 22px; }
+.value-grid > div + div { padding-left: 22px; }
+}
+@media (max-width: 860px){.site-nav a { font-size: 16px; }
+.value-grid { grid-template-columns: 1fr; }
+.value-grid > div, .value-grid > div + div { padding: 23px 0px; border-left: 0px; border-top: 1px solid rgb(91, 119, 129); }
+.value-grid > div:first-child { border-top: 0px; }
+.path-grid, .buyer-grid, .capital-grid, .progress-note { grid-template-columns: 1fr; gap: 33px; }
+.milestones { grid-template-columns: repeat(2, 1fr); }
+.milestones > div:nth-child(3) { border-left: 0px; padding-left: 0px; border-top: 1px solid var(--rule); }
+.milestones > div:nth-child(4) { border-top: 1px solid var(--rule); }
+.contact-grid { grid-template-columns: 1fr; gap: 37px; }
+.contact-form-wrap { max-width: 700px; }
+.grade-ladder { display: block; }
+.grade-ladder .text-link { margin-top: 20px; }
+.platform-proof { grid-template-columns: 1fr; }
+.platform-proof > div, .platform-proof > div + div { border-left: 0px; border-top: 1px solid var(--rule); padding: 22px 0px; }
+.platform-proof > div:first-child { border-top: 0px; }
+}
+@media (max-width: 620px){.hero h1 { font-size: clamp(45px, 10.3vw, 58px); }
+.hero-conviction { font-size: 14px; }
+.grade-ladder { padding: 25px 23px; }
+.host-path h2, .buyer-path h2, .capital h2 { font-size: clamp(39px, 10vw, 51px); }
+.milestones { display: block; }
+.milestones > div, .milestones > div + div, .milestones > div:nth-child(3), .milestones > div:nth-child(4) { border-left: 0px; border-top: 1px solid var(--rule); padding: 21px 0px; }
+.milestones > div:first-child { border-top: 0px; }
+.contact-form-wrap { padding: 25px 22px; }
+.buyer-fields span, .capital-gates span { width: 40px; }
+.buyer-fields strong, .capital-gates strong, .buyer-fields p, .capital-gates p { margin-left: 40px; }
+}
+.team-grid { gap: 18px; border-top: 0px; }
+.team-card { display: flex; flex-direction: column; min-width: 0px; background: rgb(255, 255, 255); border: 1px solid rgb(196, 208, 207); }
+.team-photo { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: center 24%; background: rgb(217, 233, 230); }
+.team-card:first-child .team-photo { object-position: center 30%; }
+.team-copy { padding: 22px 22px 25px; display: flex; flex-direction: column; flex: 1 1 0%; }
+.team-copy strong { display: block; font-size: 20px; line-height: 1.25; margin: 0px 0px 7px; }
+.team-copy > span { display: block; color: var(--teal); font-size: 14px; font-weight: 800; }
+.team-copy p { font-size: 14px; line-height: 1.55; color: rgb(83, 107, 115); margin: 14px 0px 22px; }
+.team-copy a { display: inline-flex; align-items: center; justify-content: space-between; gap: 18px; align-self: flex-start; margin-top: auto; padding-bottom: 5px; border-bottom: 1px solid var(--teal); color: var(--teal); font-size: 14px; font-weight: 800; text-decoration: none; }
+.team-copy a:hover { color: var(--navy); border-color: var(--navy); }
+@media (max-width: 860px){.team-grid { gap: 16px; }
+}
+@media (max-width: 620px){.team-grid { gap: 15px; }
+.team-photo { aspect-ratio: 1.25 / 1; }
+.team-copy { padding: 21px 23px 24px; }
+}
+.hero-visual { margin: 0px 0px 0px auto; width: 100%; max-width: 590px; }
+.hero-visual img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border: 1px solid rgb(87, 128, 140); box-shadow: rgba(3, 25, 37, 0.22) 22px 24px 0px; }
+.hero-visual figcaption { color: rgb(173, 197, 202); font-size: 12px; line-height: 1.5; margin-top: 17px; text-align: right; }
+.process-overview { background: rgb(231, 239, 237); }
+.process-overview-grid { display: grid; grid-template-columns: minmax(0px, 0.92fr) minmax(0px, 1fr); gap: 10%; align-items: center; }
+.process-overview-copy h2 { font-size: clamp(39px, 4.1vw, 63px); line-height: 1.08; letter-spacing: -0.048em; margin: 0px 0px 24px; max-width: 630px; }
+.process-overview-copy > p:not(.eyebrow) { color: rgb(67, 92, 100); font-size: 18px; line-height: 1.64; max-width: 590px; margin: 0px 0px 30px; }
+.process-overview .hero-system { transform: none; box-shadow: rgba(10, 35, 48, 0.07) 16px 20px 0px; }
+@media (max-width: 860px){.hero-visual { max-width: 700px; margin: 48px 0px 0px; }
+.hero-visual img { box-shadow: none; }
+.hero-visual figcaption { text-align: left; }
+.process-overview-grid { grid-template-columns: 1fr; gap: 42px; }
+.process-overview .hero-system { margin: 0px; max-width: 760px; }
+}
+@media (max-width: 620px){.hero-visual { margin-top: 42px; }
+.process-overview-copy h2 { font-size: clamp(39px, 10vw, 51px); }
+.process-overview-copy > p:not(.eyebrow) { font-size: 17px; }
+.process-overview-grid { gap: 32px; }
+}
+.mobile-home { display: none; }
+.site-nav .nav-home { display: inline-flex; align-items: center; border: 1px solid var(--teal); padding: 10px 13px; color: var(--teal); }
+.site-nav .nav-home:hover { background: var(--teal); color: rgb(255, 255, 255); }
+.market-invite { display: flex; align-items: center; justify-content: space-between; gap: 35px; border-top: 1px solid rgb(189, 204, 203); margin-top: 40px; padding-top: 32px; }
+.market-invite > div { max-width: 690px; }
+.market-invite span { display: block; color: var(--teal); font: 700 11px / 1.4 "Courier New", monospace; letter-spacing: 0.1em; margin-bottom: 11px; }
+.market-invite h3 { font-size: 26px; line-height: 1.2; letter-spacing: -0.03em; margin: 0px 0px 8px; }
+.market-invite p { color: rgb(83, 107, 115); font-size: 16px; line-height: 1.5; margin: 0px; }
+.market-invite .button { white-space: nowrap; }
+@media (min-width: 861px) and (max-width: 1050px){.site-nav { gap: 8px; }
+.site-nav a { font-size: 11px; }
+.site-nav .nav-contact { padding: 10px 11px; }
+.site-nav .nav-home { padding: 9px 10px; }
+}
+@media (max-width: 860px){.mobile-home { display: inline-flex; align-items: center; margin-left: auto; border: 1px solid var(--teal); padding: 9px 14px; text-decoration: none; font-size: 14px; font-weight: 800; color: var(--teal); }
+.site-nav .nav-home { padding: 13px 0px; border-width: 0px 0px 1px; border-style: none none solid; border-color: currentcolor currentcolor rgb(237, 241, 241); border-image: none; }
+.market-invite { align-items: flex-start; flex-direction: column; gap: 20px; }
+}
+@media (max-width: 620px){.market-invite h3 { font-size: 24px; }
+.market-invite .button { white-space: normal; }
+}
+.hero-visual img { border: 0px; border-radius: 22px; box-shadow: none; mask-image: radial-gradient(rgb(0, 0, 0) 72%, transparent 100%); }
+.team-card { border-radius: 16px; overflow: hidden; box-shadow: rgba(10, 35, 48, 0.05) 0px 12px 28px; }
+.team-photo { mask-image: linear-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 87%, transparent 100%); }
+.team-copy { position: relative; margin-top: -12px; }
+.brand { width: 204px; }
+.header-inner > .brand { display: inline-flex; align-items: center; width: 204px; flex: 0 0 204px; }
+.brand img { display: block; width: 100%; height: auto; }
+.footer-brand { display: inline-flex; align-items: center; width: 220px; flex: 0 0 220px; }
+@media (max-width: 1200px) and (min-width: 861px){.header-inner > .brand { width: 170px; flex-basis: 170px; }
+.header-inner { gap: 16px; }
+}
+@media (max-width: 860px){.header-inner { gap: 10px; }
+.header-inner > .brand { width: 166px; flex-basis: 166px; }
+}
+@media (max-width: 380px){.header-inner > .brand { width: 142px; flex-basis: 142px; }
+.mobile-home { padding: 9px 10px; }
+.menu-toggle { padding: 10px; }
+}
+.ecc-section { background: rgb(18, 59, 72); color: rgb(255, 255, 255); padding: 63px 0px 72px; scroll-margin-top: 82px; }
+.ecc-partner { display: grid; grid-template-columns: minmax(260px, 0.78fr) minmax(0px, 1.22fr); gap: 9%; border-top: 1px solid rgb(98, 132, 140); padding-top: 37px; }
+.ecc-partner .eyebrow { margin-bottom: 17px; }
+.ecc-partner h2 { font-size: clamp(36px, 3.5vw, 54px); line-height: 1.06; letter-spacing: -0.045em; margin: 0px; }
+.ecc-partner-copy p { max-width: 780px; color: rgb(226, 235, 236); font-size: 18px; line-height: 1.6; margin: 0px 0px 20px; }
+.ecc-partner-copy .ecc-qualification { border-left: 3px solid rgb(83, 187, 173); padding-left: 16px; color: rgb(188, 209, 212); font-size: 14px; line-height: 1.55; margin: 23px 0px; }
+.ecc-partner-copy a { color: rgb(240, 184, 66); font-size: 15px; font-weight: 800; text-decoration: none; border-bottom: 1px solid; padding-bottom: 5px; }
+.ecc-partner-copy a:hover { color: rgb(255, 255, 255); }
+@media (max-width: 860px){.ecc-section { padding: 53px 0px 61px; }
+.ecc-partner { grid-template-columns: 1fr; gap: 27px; }
+}
+.xd-video{margin:28px 0 36px;padding:22px;border-radius:16px;background:#ffffff;border:1px solid #cfdcd9;font-family:Arial, Helvetica, sans-serif;box-sizing:border-box;clear:both;text-align:left;width:100%}
+.xd-label{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:12px;line-height:1;color:#102d39;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.xd-dot{width:8px;height:8px;border-radius:50%;background:#f0b842;display:inline-block}
+.xd-title{font-weight:700;font-size:22px;line-height:1.3;color:#102d39;margin:0 0 6px;padding:0}
+.xd-sub{font-size:16px;line-height:1.5;color:#555;margin:0 0 16px;padding:0}
+.xd-frame{position:relative;width:100%;aspect-ratio:16/10;border-radius:12px;overflow:hidden;background:#111;box-shadow:0 6px 20px rgba(0,0,0,.10)}
+.xd-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+@media (max-width:600px){.xd-video{padding:14px}.xd-title{font-size:18px}}
+.xd-wrap{padding-top:40px}.xd-wrap .xd-video{max-width:860px;margin-left:auto;margin-right:auto}</style></head><body class=""><header class="site-header" id="top">
+    <div class="shell header-inner">
+      <a class="brand" href="https://esco2.com/#top" aria-label="ESCo2 Group, Ltd., home"><img src="https://esco2.com/assets/esco2-group-logo-primary.svg" width="870" height="270" alt=""></a>
+      <a class="mobile-home" href="https://esco2.com/#top">Home</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <a class="nav-home" href="https://esco2.com/#top">Home</a>
+        <a href="https://esco2.com/#platform">Platform</a>
+        <a href="https://esco2.com/#products">Products</a>
+        <a href="https://esco2.com/markets/">CO₂ &amp; methane</a>
+        <a href="https://esco2.com/#hosts">For hosts</a>
+        <a href="https://esco2.com/#buyers">For buyers</a>
+        <a href="https://esco2.com/#progress">Progress</a>
+        <a href="https://esco2.com/#company">Team</a>
+        <a class="nav-contact" href="https://esco2.com/#contact">Talk to us <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header><main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow on-dark">Industrial carbon infrastructure</p>
+          <h1 id="hero-title">Capture emissions.<br><span>Create products.</span></h1>
+          <p class="hero-lede">ESCo₂ is developing modular systems that recover CO₂ and, on suitable mixed gas streams, methane at the source. The commercial goal is buyer-qualified liquid products and a measured emissions outcome from the same asset.</p>
+          <div class="hero-actions">
+            <a class="button button-gold" href="https://esco2.com/#platform">Explore the platform <span aria-hidden="true">↗</span></a>
+            <a class="text-link light" href="https://esco2.com/#contact">Discuss an opportunity <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="hero-conviction">We're not ending oil. We're ending emissions.</p>
+          <div class="stage-line"><span class="stage-dot" aria-hidden="true"></span> Engineering and prototype validation stage</div>
+        </div>
+        <figure class="hero-visual">
+          <img src="https://esco2.com/assets/esco2-containers-dusk.webp" width="1254" height="1254" alt="Illustrative ESCo2 containers beside an industrial plant at dusk" fetchpriority="high" decoding="async">
+          <figcaption>Concept visual. Prototype validation is in progress.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="value-band" aria-label="ESCo2 value proposition"><div class="shell value-grid"><div><span>01 / CAPTURE</span><strong>Recover gas at its source.</strong><p>Reduce release of CO₂ and, where applicable, methane.</p></div><div><span>02 / SELL</span><strong>Qualify physical products.</strong><p>Match output grade, volume and delivery cost to local buyers.</p></div><div><span>03 / MEASURE</span><strong>Prove the outcome.</strong><p>Reconcile metered inputs, outputs and operating energy.</p></div></div></section>
+
+    <section class="intro section-pad" id="opportunity" aria-labelledby="opportunity-title">
+      <div class="shell">
+        <div class="section-heading split-heading">
+          <div><p class="eyebrow">The opening</p><h2 id="opportunity-title">Wasted gas meets fragile supply.</h2></div>
+          <p>Industrial sites release molecules with material and energy value. Gas buyers need reliable local supply at an agreed grade and delivered price. ESCo₂ is building a bridge between these two markets.</p>
+        </div>
+        <div class="signals">
+          <div class="signal">
+            <span class="signal-number">167 <small>bcm</small></span>
+            <p>Gas flared globally in 2025, according to the World Bank. It estimated the gas value at US$54 billion.</p>
+            <a href="https://www.worldbank.org/en/programs/gasflaringreduction/publication/2026-global-gas-flaring-tracker-report" target="_blank" rel="noopener noreferrer">World Bank, 2026 <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="signal">
+            <span class="signal-number signal-years">2018 / 2021 / 2026</span>
+            <p>Years when UK CO₂ supply failures required government intervention. Resilience depends on location, storage and logistics.</p>
+            <a href="https://www.gov.uk/government/calls-for-evidence/strengthening-co2-supply-chain-resilience-call-for-evidence/strengthening-co2-supply-chain-resilience" target="_blank" rel="noopener noreferrer">UK DBT and Defra, 2026 <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <p class="context-note">These are market signals, not ESCo₂'s addressable volume. Every project has to pass its own feed, energy, product and offtake tests.</p>
+      </div>
+    </section>
+
+    <section class="process-overview section-pad" aria-labelledby="process-overview-title">
+      <div class="shell process-overview-grid">
+        <div class="process-overview-copy">
+          <p class="eyebrow">From source to product</p>
+          <h2 id="process-overview-title">The route starts with the gas in front of us.</h2>
+          <p>ESCo₂ is engineering a modular route from industrial exhaust to liquid CO₂. Suitable mixed gas feeds can add methane recovery. Each site must prove the product quality, energy demand and local buyer route before commercial deployment.</p>
+          <a class="text-link" href="https://esco2.com/#platform">Explore both configurations <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-system" aria-label="Conceptual ESCo2 process configurations" data-hero-mode="co2">
+          <div class="hero-system-top"><span>ESCo₂ / PROCESS CONCEPT</span><span>SITE-SPECIFIC</span></div>
+          <div class="hero-switch" role="group" aria-label="Choose process configuration"><button type="button" data-hero-mode="co2" aria-pressed="true">CO₂ only</button><button type="button" data-hero-mode="combined" aria-pressed="false">CO₂ + CH₄</button></div>
+          <div class="hero-system-flow">
+            <div class="flow-step"><span class="flow-index">01</span><strong id="hero-feed">Industrial exhaust</strong><small>Site feed</small></div>
+            <div class="flow-step"><span class="flow-index">02</span><strong>Pretreatment</strong><small>Condition the site stream</small></div>
+            <div class="flow-step emphasis"><span class="flow-index">03</span><strong>Liquid CO₂</strong><small>Industrial grade target</small></div>
+            <div class="flow-step optional" id="hero-methane" aria-label="Optional methane recovery stage, inactive in CO2-only mode"><span class="flow-index">04 / OPTION</span><strong>CH₄ recovery</strong><small>Suitable mixed feeds</small></div>
+          </div>
+          <div class="hero-system-bottom"><span id="hero-output">CO₂ PRODUCT ROUTE</span><span>+ METERED EVIDENCE</span></div>
+          <p class="hero-system-note">Process illustration only. Feed, product quality and performance require site testing.</p>
+        </div>
+      </div>
+    <div class="shell xd-wrap"><div class="xd-video"><div class="xd-label"><span class="xd-dot"></span>Video &middot; 2 min</div><div class="xd-title">How on-site CO2 recovery units work</div><p class="xd-sub">From a site&#x27;s gas stream to liquid CO2, with methane recovery on suitable mixed feeds and a measured outcome.</p><div class="xd-frame"><iframe src="https://scrimba.com/explain/guide0db9f7b99" scrolling="no" allow="fullscreen" allowfullscreen title="Video: How on-site CO2 recovery units work"></iframe></div></div></div></section>
+
+    <section class="platform section-pad" id="platform" aria-labelledby="platform-title">
+      <div class="shell">
+        <div class="section-heading split-heading">
+          <div><p class="eyebrow">The platform</p><h2 id="platform-title">Two configurations.<br>One site-led decision.</h2></div>
+          <p>Feed composition sets the process route. The CO₂-only configuration ends after liquid CO₂ recovery. Suitable mixed gas feeds add a methane recovery stage.</p>
+        </div>
+        <div class="mode-selector" role="tablist" aria-label="System configuration">
+          <button id="tab-co2" type="button" role="tab" aria-selected="true" aria-controls="panel-co2" tabindex="0" data-mode="co2">01 <span>CO₂ only</span></button>
+          <button id="tab-combined" type="button" role="tab" aria-selected="false" aria-controls="panel-combined" tabindex="-1" data-mode="combined">02 <span>CO₂ + CH₄</span></button>
+        </div>
+        <div class="mode-panel" id="panel-co2" role="tabpanel" aria-labelledby="tab-co2" tabindex="0">
+          <div class="mode-copy"><h3>Industrial exhaust to liquid CO₂</h3><p>Designed for CO₂-bearing exhaust, with pretreatment sized to the actual feed. Industrial liquid CO₂ is the first product target.</p><div class="output-line"><span>Target output</span><strong>Industrial liquid CO₂</strong></div></div>
+          <div class="process-map" aria-label="CO2-only process: industrial exhaust, pretreatment, CO2 recovery, product storage">
+            <div><span>Feed</span><strong>Industrial exhaust</strong></div><i aria-hidden="true"></i><div><span>Condition</span><strong>Pretreatment</strong></div><i aria-hidden="true"></i><div class="active"><span>Recover</span><strong>Liquid CO₂</strong></div><i aria-hidden="true"></i><div><span>Deliver</span><strong>Storage + offtake</strong></div>
+          </div>
+        </div>
+        <div class="mode-panel" id="panel-combined" role="tabpanel" aria-labelledby="tab-combined" tabindex="0" hidden="">
+          <div class="mode-copy"><h3>Mixed gas to two product streams</h3><p>For suitable associated or flare gas, the design adds methane recovery after liquid CO₂. Both outputs need formal testing against buyer specifications.</p><div class="output-line"><span>Target outputs</span><strong>Liquid CO₂ + methane-rich liquid</strong></div></div>
+          <div class="process-map process-map-five" aria-label="Combined process: mixed gas feed, pretreatment, CO2 recovery, methane recovery, separate product storage">
+            <div><span>Feed</span><strong>Mixed gas</strong></div><i aria-hidden="true"></i><div><span>Condition</span><strong>Pretreatment</strong></div><i aria-hidden="true"></i><div class="active"><span>Recover</span><strong>Liquid CO₂</strong></div><i aria-hidden="true"></i><div class="active"><span>Then</span><strong>CH₄ recovery</strong></div><i aria-hidden="true"></i><div><span>Deliver</span><strong>Separate storage</strong></div>
+          </div>
+        </div>
+        <p class="technical-note">The system is designed for modular factory build and site integration. Feed variability, contaminants, power, heat rejection, safety and storage remain site engineering tasks. The diagram is conceptual.</p>
+        <div class="platform-proof"><div><span>PROCESS</span><strong>Physical gas recovery</strong><p>Target liquid products at the source, subject to qualification.</p></div><div><span>CONTROL</span><strong>ESCo₂ design authority</strong><p>Engineering, manufacturing and software interfaces are governed through ESCo₂.</p></div><div><span>EVIDENCE</span><strong>Measured mass balance</strong><p>Credit eligibility follows a separate verification pathway.</p></div></div>
+      </div>
+    </section>
+
+    <section class="products section-pad" id="products" aria-labelledby="products-title">
+      <div class="shell">
+        <div class="section-heading split-heading">
+          <div><p class="eyebrow">Product strategy</p><h2 id="products-title">Sell what the plant proves.<br>Upgrade the grade.</h2></div>
+          <p>Product revenue depends on buyer acceptance, storage and delivery economics. A claim about emissions is measured independently from a gas sales contract.</p>
+        </div>
+        <div class="product-list">
+          <article class="product-row"><span class="product-index">01</span><div><h3>Industrial liquid CO₂</h3><p>The first CO₂ product target in both configurations. Grade, volume and delivered terms are set site by site.</p></div><span class="product-state">Baseline target</span></article>
+          <article class="product-row"><span class="product-index">02</span><div><h3>Methane-rich liquid</h3><p>An additional product route on suitable mixed gas feeds. Composition and sales specification require engineering and buyer qualification.</p></div><span class="product-state">Mixed gas option</span></article>
+          <article class="product-row evidence-row"><span class="product-index">03</span><div><h3>Measured emissions outcome</h3><p>Metered inlet, outputs and operating data support an auditable balance. Carbon-credit eligibility requires an approved methodology and independent verification.</p></div><span class="product-state">Separate claim pathway</span></article>
+        </div>
+        <div class="grade-ladder"><div><span class="grade-label">POTENTIAL LATER QUALIFICATION</span><h3>Higher specification markets</h3><p>Food and beverage CO₂, medical CO₂ and LNG are potential routes only after additional processing where needed, testing, certification and buyer acceptance. They are not the baseline product claim.</p></div><a class="text-link" href="https://esco2.com/#buyers" data-inquiry="Product offtake">Discuss product requirements <span aria-hidden="true">↗</span></a></div>
+        <div class="market-invite"><div><span>MARKET EXPLAINER</span><h3>Why CO₂ and methane matter beyond the emissions debate.</h3><p>Explore current uses, emerging applications, quality standards and the outlook for both product routes.</p></div><a class="button button-dark" href="https://esco2.com/markets/">Explore product markets <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="measurement section-pad" aria-labelledby="measurement-title">
+      <div class="shell measurement-grid">
+      <div><p class="eyebrow on-dark">Measurement</p><h2 id="measurement-title">The asset has to show its work.</h2><p class="measurement-lede">ESCo₂ is developing an AI and MRV layer for control, operating evidence and reporting. The physical balance remains the starting point.</p></div>
+        <div class="measure-list">
+          <div><span>01</span><p>What enters: flow, composition and site conditions.</p></div>
+          <div><span>02</span><p>What is produced: volume, quality and delivery records.</p></div>
+          <div><span>03</span><p>What the unit uses: power, availability and operating data.</p></div>
+          <div><span>04</span><p>What can be claimed: an auditable mass balance, with credit eligibility tested separately.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ecc-section" id="carbon-partner" aria-labelledby="ecc-title">
+      <div class="shell ecc-partner">
+        <div>
+          <p class="eyebrow on-dark">Strategic carbon-market partner</p>
+          <h2 id="ecc-title">Enterprise<br>Carbon Corp</h2>
+        </div>
+        <div class="ecc-partner-copy">
+          <p>ESCo₂ builds the physical capture asset and its metered operating evidence. Our collaboration with Enterprise Carbon Corp (ECC) connects that evidence to carbon-market methodology and project development for eligible sites.</p>
+          <p class="ecc-qualification">Any credit claim requires a suitable methodology, project-specific assessment and independent verification. No credits are assumed or represented as issued.</p>
+          <a href="https://www.enterprisecarbon.com/partners" target="_blank" rel="noopener noreferrer">See ESCo₂ on ECC’s partner page <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-model section-pad" id="model" aria-labelledby="model-title">
+      <div class="shell">
+        <div class="section-heading split-heading"><div><p class="eyebrow">Commercial model</p><h2 id="model-title">A host, an asset and a buyer.</h2></div><p>Three agreements must work together at each location. Project capital follows evidence, contracts and offtake, not a generic fleet forecast.</p></div>
+        <div class="roles">
+          <article><span class="role-no">01</span><h3>Industrial host</h3><p>Provides agreed feed, physical access and site integration. Receives a measured route to lower emissions and waste.</p></article>
+          <article><span class="role-no">02</span><h3>ESCo₂ asset</h3><p>Develops and operates the unit through a project structure. Financing and responsibilities are agreed for each site.</p></article>
+          <article><span class="role-no">03</span><h3>Product buyer</h3><p>Accepts a defined grade, volume and delivery route. Local netback after operating and logistics costs determines project economics.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="host-path section-pad" id="hosts" aria-labelledby="hosts-title"><div class="shell path-grid"><div><p class="eyebrow">For industrial hosts</p><h2 id="hosts-title">Turn a site liability into a qualification project.</h2><p>ESCo₂ is pursuing financed, operated assets at suitable sites. The structure can reduce host capital burden, but commercial terms, utilities and integration responsibilities must be agreed case by case.</p><a class="button button-dark" href="https://esco2.com/#contact" data-inquiry="Industrial host">Submit a site for review <span aria-hidden="true">↗</span></a></div><div class="screening"><h3>What starts a credible site review</h3><ul><li>Source, location, gas flow and composition</li><li>Contaminants and variability</li><li>Power, utilities, land and site rights</li><li>Storage, transport and local product demand</li></ul><p>We screen the feed and market before selecting a configuration or stating a recovery target.</p></div></div></section>
+
+    <section class="buyer-path section-pad" id="buyers" aria-labelledby="buyers-title"><div class="shell buyer-grid"><div><p class="eyebrow on-dark">For product buyers</p><h2 id="buyers-title">Start with the required grade and delivery route.</h2><p>Industrial gas buyers, distributors and energy users define the acceptance criteria. ESCo₂ then tests whether a nearby host can meet those specifications at a viable delivered cost.</p><a class="button button-gold" href="https://esco2.com/#contact" data-inquiry="Product offtake">Discuss offtake <span aria-hidden="true">↗</span></a></div><div class="buyer-fields"><div><span>01</span><strong>Product and grade</strong><p>What quality and assay are required?</p></div><div><span>02</span><strong>Volume and timing</strong><p>What is the demand profile and contract term?</p></div><div><span>03</span><strong>Delivery region</strong><p>What storage and transport route is practical?</p></div></div></div></section>
+
+    <section class="capital section-pad" id="capital" aria-labelledby="capital-title"><div class="shell capital-grid"><div><p class="eyebrow">For capital partners</p><h2 id="capital-title">Prove the first asset. Finance each project.</h2><p>Seed capital is intended to establish the engineering team, build and test the prototype, develop measurement software and support the first paid pilot. Later commercial units need site rights, offtake and their own project finance.</p><a class="text-link" href="https://esco2.com/#contact" data-inquiry="Investment discussion">Request an investor discussion <span aria-hidden="true">↗</span></a></div><div class="capital-gates"><div><span>01</span><strong>Prototype evidence</strong><p>Feed duty, product assays, power and reliability.</p></div><div><span>02</span><strong>Paid site pilot</strong><p>Commissioning, host terms and measured operation.</p></div><div><span>03</span><strong>Contracted rollout</strong><p>Buyer acceptance and project capital before scale.</p></div></div></div></section>
+
+    <section class="progress section-pad" id="progress" aria-labelledby="progress-title"><div class="shell"><div class="section-heading split-heading"><div><p class="eyebrow">Current stage</p><h2 id="progress-title">Proof before scale.</h2></div><p>ESCo₂ is in engineering and commercial development. The next milestones are prototype evidence, a paid site pilot and contracted offtake.</p></div><div class="milestones"><div><span>01 / NOW</span><strong>Design authority</strong><p>ESCo₂ directs the technical basis and supplier interfaces.</p></div><div><span>02 / NEXT</span><strong>Prototype and factory test</strong><p>Verify duty, safety, product and operability.</p></div><div><span>03 / TARGET</span><strong>Paid site pilot</strong><p>Test the unit on an agreed feed with a real buyer route.</p></div><div><span>04 / TARGET</span><strong>First commercial contract</strong><p>Commit capital when site, product and finance gates pass.</p></div></div><div class="progress-note"><p>A manufacturing MOU is in place with Harris Thermal; the detailed development scope is being negotiated. ESCo₂ has selected Warp for the AI and MRV development workstream, with direct contracting to be completed. Enterprise Carbon Corp publicly lists ESCo₂ as a partner for the carbon-market pathway.</p><p><strong>No commissioned ESCo₂ plant or executed gas offtake is represented here.</strong></p></div></div></section>
+
+    <section class="company section-pad" id="company" aria-labelledby="company-title">
+      <div class="shell"><div class="section-heading split-heading"><div><p class="eyebrow">Company</p><h2 id="company-title">Accountable leadership from design to deployment.</h2></div><p>ESCo₂ Group is an industrial carbon infrastructure company. The executive team covers platform strategy, science, field delivery and capital.</p></div>
+      <div class="team-grid">
+        <article class="team-card"><img class="team-photo" src="https://esco2.com/assets/team/chris-greyling.webp" alt="Chris Greyling" decoding="async"><div class="team-copy"><strong>Chris Greyling</strong><span>Founder &amp; CEO</span><p>More than 40 years in executive leadership, with two exits. Leads ESCo₂'s platform architecture and commercial direction.</p><a href="https://www.linkedin.com/in/chrisgreyling/" target="_blank" rel="noopener noreferrer" aria-label="Chris Greyling on LinkedIn">LinkedIn <span aria-hidden="true">↗</span></a></div></article>
+        <article class="team-card"><img class="team-photo" src="https://esco2.com/assets/team/ayham-ammora.webp" alt="Dr. Ayham Ammora" decoding="async"><div class="team-copy"><strong>Dr. Ayham Ammora</strong><span>Co-founder &amp; CSO</span><p>More than 30 years across global energy markets, industrial transformation and frontier technology. Leads scientific and strategic architecture.</p><a href="https://www.linkedin.com/in/dr-ayham-ammora/" target="_blank" rel="noopener noreferrer" aria-label="Dr. Ayham Ammora on LinkedIn">LinkedIn <span aria-hidden="true">↗</span></a></div></article>
+        <article class="team-card"><img class="team-photo" src="https://esco2.com/assets/team/richard-donnellan.webp" alt="Richard Donnellan" decoding="async"><div class="team-copy"><strong>Richard Donnellan</strong><span>Co-founder &amp; COO</span><p>More than 20 years in oilfield deployment. Leads commercial deployment and field execution for ESCo₂.</p><a href="https://www.linkedin.com/in/richard-donnellan-mba-ma-4123b4350/" target="_blank" rel="noopener noreferrer" aria-label="Richard Donnellan on LinkedIn">LinkedIn <span aria-hidden="true">↗</span></a></div></article>
+        <article class="team-card"><img class="team-photo" src="https://esco2.com/assets/team/leo-kirby.webp" alt="Leo Kirby" decoding="async"><div class="team-copy"><strong>Leo Kirby</strong><span>Co-founder &amp; CFO</span><p>More than 30 years in project finance and institutional capital. Leads capital architecture and project bankability.</p><a href="https://www.linkedin.com/in/leo-kirby/" target="_blank" rel="noopener noreferrer" aria-label="Leo Kirby on LinkedIn">LinkedIn <span aria-hidden="true">↗</span></a></div></article>
+      </div>
+      </div>
+    </section>
+
+    <section class="contact section-pad" id="contact" aria-labelledby="contact-title">
+      <div class="shell contact-grid"><div><p class="eyebrow on-dark">Start a conversation</p><h2 id="contact-title">Bring the feed. Bring the demand. Bring the question.</h2><p>Industrial hosts, gas buyers, capital providers and engineering partners can start with the essentials. We will route the discussion to the right team.</p><div class="contact-details"><span>GENERAL ENQUIRIES</span><a href="mailto:info@esco2.com">info@esco2.com</a></div></div><div class="contact-form-wrap"><h3>Prepare an enquiry</h3><form id="enquiry-form"><label for="inquiry-type">I am enquiring about</label><select id="inquiry-type" name="type"><option>Industrial host</option><option>Product offtake</option><option>Investment discussion</option><option>Engineering partnership</option><option>General enquiry</option></select><label for="inquiry-name">Name</label><input id="inquiry-name" name="name" type="text" autocomplete="name" required=""><label for="inquiry-org">Organisation</label><input id="inquiry-org" name="organisation" type="text" autocomplete="organization"><label for="inquiry-detail">Site, product or discussion brief</label><textarea id="inquiry-detail" name="detail" rows="4" required="" placeholder="Location, feed or product requirement, and the best way to reach you"></textarea><button class="button button-gold" type="submit">Open prepared email <span aria-hidden="true">↗</span></button><p class="form-note">This opens your email application. Nothing is sent until you review and send the message there.</p></form></div></div>
+    </section>
+  </main><footer class="site-footer"><div class="shell footer-main"><a class="brand footer-brand" href="https://esco2.com/#top" aria-label="ESCo2 Group, Ltd., back to top"><img src="https://esco2.com/assets/esco2-group-logo-reverse.svg" width="870" height="270" alt=""></a><p>Capture emissions. Create products. Measure outcomes.</p><a href="https://esco2.com/#top">Back to top ↑</a></div><div class="shell footer-bottom"><span>© 2026 ESCo₂ Group</span><span>Technology and commercial plans are in development. Product specifications, system performance and environmental claims require validation.</span></div></footer></body></html>
